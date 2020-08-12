@@ -3,9 +3,9 @@ using System.IO;
 using System.Net;
 using System.Text;
 
-namespace Examples.System.Net
+namespace ZiplineGraphQLExample
 {
-    public class WebRequestPostExample
+    class WebRequestPostExample
     {
         public static void Main()
         {
@@ -14,23 +14,23 @@ namespace Examples.System.Net
             // Set the Method property of the request to POST.
             request.Method = "POST";
             // Set the access token in an Authorization Header
-            request.Headers.Set("Authorization", "Bearer b50a4e313dd7fd1e28bce649db2053532a9463e5dd850e144c9104352b186316");
+            request.Headers.Set("Authorization", "Bearer a50a4e313dd7fd1e28bce649db2053532a9463e5dd850e144c9104352b186316");
 
             // Build the GraphQL query in to a string object
             string query = @"
-            # This is a mutation
-            mutation {
-                # That creates a communication
-                createCommunication(
-                    # Set your attribute values here. Double quotes need to be escaped twice
-                    # so that they are still escaped in the postData
-                    headline: \""Test from C Sharp With Formatting\""
-                ) {
-                    # Specify the fields you want back here
-                    communication { id }
-                    errors
+                # This is a mutation
+                mutation {
+                    # That creates a communication
+                    createCommunication(
+                        # Set your attribute values here. Double quotes need to be escaped twice
+                        # so that they are still escaped in the postData
+                        headline: \""Test from C Sharp With Formatting\""
+                    ) {
+                        # Specify the fields you want back here
+                        communication { id }
+                        errors
+                    }
                 }
-            }
             ";
 
             // Create POST data and convert it to a byte array.
